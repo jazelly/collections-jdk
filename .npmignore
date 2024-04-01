@@ -1,0 +1,70 @@
+# Logs
+*.log
+npm-debug.log*
+
+# Directory used to store logs
+logs
+
+# Node.js dependency directory
+node_modules
+package-lock.json
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files
+.env
+.env.test
+
+# Coverage directory used by tools like istanbul
+coverage
+*.coverage
+.nyc_output
+
+# Build directories
+dist
+build
+
+# Temporary files
+tmp
+temp
+
+# Test directories
+test
+tests
+__tests__
+
+# Documentation
+docs
+doc
+
+# Examples
+example
+examples
+
+# TypeScript type definition files
+*.d.ts
+
+# TypeScript configuration
+tsconfig.json
+
+# Bower components directory
+bower_components
+
+# JSPM packages
+jspm_packages
+
+# Typings directory
+typings
+
+# Source maps
+*.map

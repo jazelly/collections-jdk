@@ -1,0 +1,19 @@
+{
+  "name": "collections-ts",
+  "version": "0.0.1",
+  "description": "Strictly TypeScripted Data Structures",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "tsc -p tsconfig.json && node dist/test/*.js",
+    "build": "tsc -p tsconfig.json"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^10.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}
