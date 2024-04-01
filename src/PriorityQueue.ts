@@ -26,20 +26,33 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    */
   #comparator: Comparator<T>;
 
-  constructor({ comparator, q }: PQ<T>) {
-    if (q !== undefined) {
-      this.#q = q;
-    } else {
-      this.#q = new Array<T>();
-    }
-
+  /**
+   * @param args an object containing
+   *        q: optional array - if provided, the queue will be construcuted based on the array
+   *        comparator: mandatory if q item is not comparable
+   */
+  constructor(args: PQ<T>) {
+    const defaultQ = new Array<T>();
     const defaultComparator = (a: T, b: T): number => {
       if (a === b) return 0;
       if (a > b) return 1;
       return -1;
     };
-      
-    this.#comparator = comparator ?? defaultComparator;
+  
+    // for js consumers
+    if (args === undefined) {
+      this.#q = defaultQ;
+      this.#comparator = defaultComparator;
+    } else {
+      const { comparator, q } = args;
+      if (Array.isArray(q)) {
+        this.#q = q;
+        this.heapifyAll();
+      } else {
+        this.#q = defaultQ;
+      }
+      this.#comparator = comparator ?? defaultComparator;
+    }
   }
 
   isEmpty() {
@@ -59,10 +72,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
     this.#q[0] = this.#q[this.#q.length - 1];
     this.#q.pop();
 
-    // Heapify down from the root.
     let i = 0;
-    let size = this.#q.length;
-
     while (true) {
         let left = 2 * i + 1;
         let right = 2 * i + 2;
@@ -84,13 +94,12 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
         }
     }
 
-    return max; // Return the removed element.
+    return max;
   }
 
   peek(): T {
     return this.#q[0];
   }
-
 
   add(t: T): boolean {
     this.#q.push(t);
