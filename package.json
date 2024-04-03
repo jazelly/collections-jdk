@@ -5,14 +5,20 @@
   "main": "dist/src/index.js",
   "type": "module",
   "scripts": {
-    "test": "tsc -p tsconfig.json && node dist/test/*.js",
+    "test": "tsc -p tsconfig.json && mocha dist/test/**/*.js",
     "build": "tsc -p tsconfig.json"
   },
   "git repository": "https://github.com/jazelly/collections-ts.git",
-  "keywords": ["data structures", "typescript", "collections"],
+  "keywords": [
+    "data structures",
+    "typescript",
+    "collections"
+  ],
   "author": "jazelly",
   "license": "MIT",
   "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "mocha": "^10.4.0",
     "typescript": "^5.4.3"
   }
 }

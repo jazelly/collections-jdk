@@ -1,7 +1,7 @@
-import type { IPriorityQueue } from '../src/IPriorityQueue';
-import type { RequiredObject } from '../src/utils';
-import { PriorityQueue } from '../src/PriorityQueue.js';
-import { assertEqual } from './utils.js';
+import type { IPriorityQueue } from '../../src/IPriorityQueue';
+import type { RequiredObject } from '../../src/utils';
+import { PriorityQueue } from '../../src/PriorityQueue.js';
+import { assertEqual } from '../utils.js';
 
 interface ITestNode {
   contentId: number;
