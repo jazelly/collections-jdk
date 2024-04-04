@@ -1,7 +1,7 @@
 {
   "name": "collections-ts",
   "version": "0.0.1",
-  "description": "Strictly TypeScripted Data Structures",
+  "description": "Strictly TypeScripted Data Structure Collections",
   "main": "dist/src/index.js",
   "type": "module",
   "scripts": {
@@ -9,6 +9,9 @@
     "build": "tsc -p tsconfig.json"
   },
   "git repository": "https://github.com/jazelly/collections-ts.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "data structures",
     "typescript",
