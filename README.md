@@ -18,7 +18,7 @@ const pq5 = new PriorityQueue<{ id: number }>({ comparator: (a, b) => {
   return a.id - b.id;
 }}) // ok
 const pq6 = new PriorityQueue({ from: [1, 2, 3] as number[] }) // ok
-const pq6 = new PriorityQueue({ from: [{ id: 1 }] as Record<string, number>[] }) // not ok - 
+const pq6 = new PriorityQueue({ from: [{ id: 1 }] as Record<string, number>[] }) // not ok - object is not comparable
 
 
 pq5.add({ id: 3});
