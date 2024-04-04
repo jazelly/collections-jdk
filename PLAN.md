@@ -4,15 +4,17 @@
 
 ### Milestone 1 - Priority Queue (Heap)
 
-- ICollection
-- IQueue
-- IPriorityQueue
+- interfaces
+- implementations
+- typing
+- testing
 
 
 ### Milestone 2 - TreeMap (in Red-black Tree)
 
-- IMap
-- ITreeMap
+### Milestone N
 
-### Milestone X...
+### Milestone N+1
+
+- benchmark
 
