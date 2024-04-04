@@ -1,52 +1,56 @@
 import type { IPriorityQueue } from './IPriorityQueue';
-import type { Comparable } from './utils';
+import type { Comparable, Equal } from './utils';
 
 type Comparator<T> = (a: T, b: T) => number;
 
-type PQ<Q, A = Array<Q>> = Q extends Comparable
-? {
-    q?: A;
-    comparator?: Comparator<Q>;
-  }
-  : Q extends undefined
-    ? never
-    : {
-      q?: A;
-      comparator: Comparator<Q>;
-    }
+type PriorityQueueParams<T> = T extends Comparable
+? [{
+    from?: Array<T>;
+    comparator?: Comparator<T>;
+  }?]
+  : Equal<T, unknown> extends true
+    ? [never]
+    : [{
+      from?: Array<T>;
+      comparator: Comparator<T>;
+    }]
 
 export class PriorityQueue<T> implements IPriorityQueue<T> {
+  /**
+   * The given array that the PQ is built on
+   */
   #q: Array<T>;
   /**
    * Comparator function
    * @params a, b
    * @return A negative value indicates that `a` should come before `b`
    *         A positive value indicates that `a` should come after `b`
-   *         0 indicates a == b and `a` will come after
+   *         0 indicates a == b and `a` will come after `b`
    */
   #comparator: Comparator<T>;
 
   /**
-   * @param args an object containing
-   *        q: optional array - if provided, the queue will be construcuted based on the array
-   *        comparator: mandatory if q item is not comparable
+   * @param params an object containing
+   *        comparator: mandatory if element is not comparable
+   *        from: optional array - if provided, the queue will be construcuted based on the array
    */
-  constructor(args: PQ<T>) {
+  constructor(...params: PriorityQueueParams<T>) {
     const defaultQ = new Array<T>();
-    const defaultComparator = (a: T, b: T): number => {
+    const defaultComparator: Comparator<T> = (a, b) => {
       if (a === b) return 0;
-      if (a > b) return 1;
-      return -1;
+      if (a > b) return -1;
+      return 1;
     };
+
+    const options = params[0]
   
-    // for js consumers
-    if (args === undefined) {
+    if (!options) {
       this.#q = defaultQ;
       this.#comparator = defaultComparator;
     } else {
-      const { comparator, q } = args;
-      if (Array.isArray(q)) {
-        this.#q = q;
+      const { comparator, from } = options;
+      if (Array.isArray(from)) {
+        this.#q = from;
         this.heapifyAll();
       } else {
         this.#q = defaultQ;
@@ -78,11 +82,11 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
         let right = 2 * i + 2;
         let largest = i;
 
-        if (this.#isValidIndex(left) && this.#comparator(this.#q[left], this.#q[largest]) < 0) {
+        if (this.#isValidIndex(left) && this.#comparator(this.#q[left], this.#q[largest]) <= 0) {
             largest = left;
         }
 
-        if (this.#isValidIndex(right) && this.#comparator(this.#q[right], this.#q[largest]) < 0) {
+        if (this.#isValidIndex(right) && this.#comparator(this.#q[right], this.#q[largest]) <= 0) {
             largest = right;
         }
 
@@ -109,7 +113,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
     while (i > 0) {
         const parent = this.#getParentIndex(i);
 
-        if (this.#comparator(this.#q[i], this.#q[parent]) > 0) {
+        if (this.#isValidIndex(parent) && this.#comparator(this.#q[i], this.#q[parent]) <= 0) {
             [this.#q[i], this.#q[parent]] = [this.#q[parent], this.#q[i]];
             i = parent;
         } else {

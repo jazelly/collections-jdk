@@ -14,11 +14,11 @@ interface TestCase<T> {
   expect?: T | void | boolean;
 }
 
-// max heap
+// max heap based on popularity
 const pq = new PriorityQueue<ITestNode>({
   comparator: (a: ITestNode, b: ITestNode) => {
-    if (a.popularity < b.popularity) return 1;
-    return 1;
+    if (a.popularity <= b.popularity) return 1;
+    return -1;
   }
 });
 
