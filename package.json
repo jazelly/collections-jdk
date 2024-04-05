@@ -8,12 +8,17 @@
     "test": "tsc -p tsconfig.json && mocha dist/test/**/*.js",
     "build": "tsc -p tsconfig.json"
   },
-  "git repository": "https://github.com/jazelly/collections-ts.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jazelly/collections-ts.git"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "data structures",
+    "heap",
+    "priority queue",
     "typescript",
     "collections"
   ],
