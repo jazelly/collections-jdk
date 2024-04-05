@@ -39,7 +39,7 @@ Well, mainly 2 reasons.
 
 1. collections-ts is strictly type-scripted. 
 For TS users, collections-ts guarantees 100% fast fail with wrong data types
-2. collections-ts is agnostic with Java Collections and aims to match with JDK implementation
+2. collections-ts is designed to be analogous to Java Collections. Most implementations in JDK Collections will be rebuilt here
 
 
 ## FAQ
