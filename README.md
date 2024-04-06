@@ -1,14 +1,14 @@
 ## Welcome
 
-collections-ts is a project inspired by JDK Collections.
+collections-jdk is a project inspired by JDK Collections.
 
 ## Example Usage
 ```
-npm install collections-ts
+npm install collections-jdk
 ```
 
 ```
-import { PriorityQueue } from 'collections-ts';
+import { PriorityQueue } from 'collections-jdk';
 
 const pq0 = new PriorityQueue(); // not ok - didn't specify element type
 const pq2 = new PriorityQueue({from: [3, 4, 5]}) // not ok - didn't specify element type
@@ -37,9 +37,9 @@ pq5.peek(); // { id: 3 }
 
 Well, mainly 2 reasons.
 
-1. collections-ts is strictly type-scripted. 
-For TS users, collections-ts guarantees 100% fast fail with wrong data types
-2. collections-ts is designed to be analogous to Java Collections. Most implementations in JDK Collections will be rebuilt here
+1. `collections-jdk` is strictly type-scripted. 
+For TS users, `collections-jdk` guarantees 100% fast fail with wrong data types
+2. collections-jdk is designed to be analogous to Java Collections. Most implementations in JDK Collections will be rebuilt here
 
 
 ## FAQ
@@ -54,7 +54,7 @@ For TS users, collections-ts guarantees 100% fast fail with wrong data types
 <div align="left">
   <p style="line-height: 1.6;">
     Q: Can JS users use this?<br>
-    A: Yes! We aim to support JS users, i.e. in case compilation check does not play any roles.
+    A: Yes! collections-jdk aim to support JS users, but it's highly recommended to use this package with TS files
   </p>
 </div>
 
