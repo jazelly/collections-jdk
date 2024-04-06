@@ -1,15 +1,19 @@
 {
-  "name": "collections-ts",
+  "name": "collections-jdk",
   "version": "v0.0.1",
-  "description": "Strictly TypeScripted Data Structure Collections",
-  "author": "jazelly",
+  "description": "Strictly TypeScripted Collections inspired by OpenJDK",
+  "author": {
+    "name": "Jason Zhang",
+    "email": "xzha4350@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jazelly/collections-ts.git"
+    "url": "git+https://github.com/jazelly/collections-jdk.git"
   },
   "keywords": [
     "data structures",
+    "jdk",
     "heap",
     "priority queue",
     "typescript",
