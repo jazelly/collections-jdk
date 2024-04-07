@@ -2,7 +2,7 @@
 
 "DFS" approach: we'll try to implement one DS to a workable state and move onto the next. You can find a list of next DS plans here.
 
-### Milestone 1 - Priority Queue (Heap)
+### v0.0.X - Priority Queue (Heap)
 
 - interfaces
 - implementations
@@ -10,7 +10,10 @@
 - testing
 
 
-### Milestone 2 - TreeMap (in Red-black Tree)
+### v0.1.X - TreeMap (in Red-black Tree)
+
+- Add, delete, get
+- test
 
 ### Milestone N
 
