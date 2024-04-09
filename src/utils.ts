@@ -1,5 +1,7 @@
 export type Comparable = string | number | bigint;
 
+export type Comparator<T> = (a: T, b: T) => number;
+
 export type IsUndefined<T> = T extends undefined ? true : false;
 
 export type OptionalAll<T> = {
