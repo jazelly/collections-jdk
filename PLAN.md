@@ -12,8 +12,10 @@
 
 ### v0.1.X - TreeMap (in Red-black Tree)
 
-- Add, delete, get
+- (build from blank) Add, delete, get
 - test
+- build from map
+- build from sorted map (putAll, )
 
 ### Milestone N
 

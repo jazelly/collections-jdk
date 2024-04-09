@@ -1,7 +1,6 @@
-import type { IPriorityQueue } from './IPriorityQueue';
-import type { Comparable, Equal } from './utils';
 
-type Comparator<T> = (a: T, b: T) => number;
+import type { IPriorityQueue } from './IPriorityQueue';
+import type { Comparator, Comparable, Equal } from './utils';
 
 type PriorityQueueParams<T> = T extends Comparable
 ? [{
