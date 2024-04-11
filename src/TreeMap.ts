@@ -77,6 +77,20 @@ export class TreeMap<K, V> {
     return this.#putAndReplayOldMaybe(key, value, true);
   }
 
+  /**
+   * Removes the mapping for this key from this TreeMap if present.
+   *
+   * @param  key key for which mapping should be removed
+   * @return the previous value associated with {@code key}, or
+   *         {@code null} if there was no mapping for {@code key}.
+   *         (A {@code null} return can also indicate that the map
+   *         previously associated {@code null} with {@code key}.)
+   * @throws ClassCastException if the specified key cannot be compared
+   *         with the keys currently in the map
+   * @throws NullPointerException if the specified key is null
+   *         and this map uses natural ordering, or its comparator
+   *         does not permit null keys
+   */
   remove(key: K): V | undefined {
     const p = this.getEntry(key);
     if (!p) return undefined;
@@ -84,6 +98,16 @@ export class TreeMap<K, V> {
     const oldValue = p.value;
     this.#deleteEntry(p);
     return oldValue;
+  }
+
+  /**
+   * Removes all of the mappings from this map.
+   * The map will be empty after this call returns.
+   */
+  clear() {
+    this.#modCount++;
+    this.#size = 0;
+    this.#root = undefined;
   }
 
   #addEntry(key: K, value: V, parent: Entry<K, V>, addToLeft: boolean) {
@@ -129,6 +153,22 @@ export class TreeMap<K, V> {
 
     this.#addEntry(key, value, parent, cmp < 0);
     return undefined;
+  }
+
+  getFirstEntry(): Entry<K, V> | undefined {
+    let p = this.#root;
+    if (p)
+      while(p.left)
+        p = p.left;
+    return p;
+  }
+
+  getLastEntry(): Entry<K, V> | undefined {
+    let p = this.#root;
+    if (p)
+      while(p.right)
+        p = p.right;
+    return p;
   }
 
   /**
@@ -350,7 +390,7 @@ export class TreeMap<K, V> {
         } else {
           if (TreeMap.#colorOf(TreeMap.#rightOf(sib)) == Entry.BLACK) {
             TreeMap.#setColor(TreeMap.#leftOf(sib), Entry.BLACK);
-            TreeMap.#setColor(sib,Entry. RED);
+            TreeMap.#setColor(sib, Entry.RED);
             this.#rotateRight(sib);
             sib = TreeMap.#rightOf(TreeMap.#parentOf(x));
           }
