@@ -49,6 +49,16 @@ export class TreeMap<K, V> {
     return this.getEntry(key) !== undefined;
   }
 
+  get(key: K): V | undefined {
+    const p = this.getEntry(key);
+    return p?.value;
+  }
+
+  comparator(): Comparator<K> {
+    return this.#comparator;
+  }
+
+
   getEntry(key: K): Entry<K, V> | undefined {
     const cpr = this.#comparator;
     const k = key;

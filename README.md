@@ -61,4 +61,4 @@ For TS users, `collections-jdk` guarantees 100% fast-fail for wrong data types
 
 ## All kinds of contribution are welcome
 
-Pull request, bugs/issues, or next Data Structure to implement. You decide.
+Feel free to raise pull requests and issues

@@ -1,3 +1,7 @@
+export interface Equalable {
+  equals(o: object): boolean;
+}
+
 export interface ICollection<T> {
   add: (t: T) => boolean;
   isEmpty: () => boolean;
