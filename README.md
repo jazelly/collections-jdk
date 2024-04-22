@@ -35,11 +35,9 @@ pq5.peek(); // { id: 3 }
 
 ## Why choose this repo
 
-Well, mainly 2 reasons.
-
 1. `collections-jdk` is strictly type-scripted. 
 For TS users, `collections-jdk` guarantees 100% fast-fail for wrong data types
-2. collections-jdk is designed to be analogous to Java Collections. Most implementations in JDK Collections will be implemented here
+2. collections-jdk strictly follows the standard implementation of Java. If you like Java collections, this repo will suit your needs.
 
 
 ## FAQ
