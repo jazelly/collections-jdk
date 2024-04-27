@@ -2,6 +2,13 @@
 
 collections-jdk is a project inspired by JDK Collections.
 
+## Features
+
+ - [x] Heap (Priority queue)
+ - [x] TreeMap (Sorted map by key implemented in Red-black Tree)
+ - [ ] TreeSet (Sorted set)
+ - [ ] BTreeMap (Sorted map in B-tree) 
+
 ## Example Usage
 ```
 npm install collections-jdk
@@ -35,9 +42,9 @@ pq5.peek(); // { id: 3 }
 
 ## Why choose this repo
 
-1. `collections-jdk` is strictly type-scripted. 
+1. `collections-jdk` is fully typed, and it's recommended to use TypeScript in VS Code to leverage the intellisense and validation. 
 For TS users, `collections-jdk` guarantees 100% fast-fail for wrong data types
-2. collections-jdk strictly follows the standard implementation of Java. If you like Java collections, this repo will suit your needs.
+2. collections-jdk strictly follows the Java util library, and there are some extra supports on top of that
 
 
 ## FAQ
